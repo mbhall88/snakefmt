@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+### [0.6.2](https://www.github.com/mbhall88/snakefmt/compare/v0.6.1...v0.6.2) (2022-11-08)
+
+
+### Bug Fixes
+
+* do not align the inside of multiline strings [[#123](https://www.github.com/mbhall88/snakefmt/issues/123)]] ([4c83e06](https://www.github.com/mbhall88/snakefmt/commit/4c83e0692c1613f718671c414396a58aafe8bd5c))
+* don't format r-strings [[#123](https://www.github.com/mbhall88/snakefmt/issues/123)] ([b591a81](https://www.github.com/mbhall88/snakefmt/commit/b591a812ff516469eb42c4f4734a44e9328ca32e))
+* formatting of triple quoted strings [[#152](https://www.github.com/mbhall88/snakefmt/issues/152)] ([1c74fb7](https://www.github.com/mbhall88/snakefmt/commit/1c74fb712fb9948eac1c2caa1b114e1eb1b2920c))
+* line spacing after snakemake keyword ([ce15779](https://www.github.com/mbhall88/snakefmt/commit/ce157799f39c53342fcd2b240bfbcac4e5238b10))
+
 ## [unreleased]
 
 ## [0.6.1](https://www.github.com/snakemake/snakefmt/compare/v0.6.0...v0.6.1) (2022-06-13)
