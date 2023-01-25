@@ -32,7 +32,7 @@ after_if_keywords = ("elif", "else")
 
 
 def is_all_comments(string):
-    return all(map(comment_start, string.splitlines()))
+    return all(map(comment_start, [s for s in string.splitlines(keepends=True) if s.strip(" \t")]))
 
 
 class Formatter(Parser):
@@ -147,6 +147,12 @@ class Formatter(Parser):
         inside an artificial 'if' statement. Setting `no_nesting` to True means the code
         will always be formatted with two line skips.
         """
+        if target_indent > 0 and comment_start(string):
+            lines = string.splitlines()
+            if len(lines) > 1:
+                lines[1] = textwrap.dedent(lines[1])
+                string = "\n".join(lines)
+
         artificial_nest = (
             self.from_python
             and target_indent > 0

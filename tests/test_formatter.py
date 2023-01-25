@@ -993,15 +993,30 @@ class TestCommentTreatment:
         formatter = setup_formatter(snakecode)
         assert formatter.get_formatted() == snakecode
 
-    def test_comment_in_run_block(self):
+    def test_comment_in_run_block_at_start(self):
         """https://github.com/snakemake/snakefmt/issues/169#issuecomment-1361067856"""
         snakecode = (
             "rule foo:\n"
-            f"{TAB * 1}input\n"
+            f"{TAB * 1}input:\n"
             f"{TAB * 2}[],\n"
             f"{TAB * 1}run:\n"
             f"{TAB * 2}# some comment\n"
-            f"{TAB * 2}x = 3\n"
+            f"{TAB * 2}y = 1\n"
+            f"{TAB * 2}if True:\n"
+            f"{TAB * 3}x = 3\n"
+        )
+        formatter = setup_formatter(snakecode)
+        assert formatter.get_formatted() == snakecode
+
+    def test_two_comments_in_rule_at_start(self):
+        """https://github.com/snakemake/snakefmt/issues/169#issue-1505309440"""
+        snakecode = (
+            "if x:\n\n"
+            f"{TAB * 1}rule a:\n"
+            f"{TAB * 2}# test\n"
+            f"{TAB * 2}# test\n"
+            f"{TAB * 2}output:\n"
+            f'{TAB * 3}touch("data/a.txt"),\n'
         )
         formatter = setup_formatter(snakecode)
         assert formatter.get_formatted() == snakecode
