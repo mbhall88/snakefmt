@@ -994,6 +994,19 @@ class TestCommentTreatment:
         formatter = setup_formatter(snakecode)
         assert formatter.get_formatted() == snakecode
 
+    def test_comment_in_run_block(self):
+        """https://github.com/snakemake/snakefmt/issues/169#issuecomment-1361067856"""
+        snakecode = (
+            "rule foo:\n"
+            f"{TAB * 1}input\n"
+            f"{TAB * 2}[],\n"
+            f"{TAB * 1}run:\n"
+            f"{TAB * 2}# some comment\n"
+            f"{TAB * 2}x = 3\n"
+        )
+        formatter = setup_formatter(snakecode)
+        assert formatter.get_formatted() == snakecode
+
 
 class TestNewlineSpacing:
     def test_parameter_keyword_spacing_above(self):
