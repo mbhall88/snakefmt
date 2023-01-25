@@ -391,9 +391,8 @@ class TestComplexPythonFormatting:
         snakecode = (
             "if True:\n\n"
             f"{TAB * 1}ruleorder: a > b\n"
-            "\n"
-            f"# comment\n"
-            f"# comment\n"
+            f"{TAB * 1}# comment\n"
+            f"{TAB * 1}# comment\n"
             f"{TAB * 1}ruleorder: c > d\n"
         )
         formatter = setup_formatter(snakecode)
