@@ -1032,6 +1032,18 @@ class TestCommentTreatment:
         formatter = setup_formatter(snakecode)
         assert formatter.get_formatted() == snakecode
 
+    def test_comment_documenting_onstart(self):
+        """https://github.com/snakemake/snakefmt/issues/169#issuecomment-1404268174"""
+        snakecode = (
+            "onstart:\n"
+            f"{TAB * 1}# comment\n"
+            f"{TAB * 1}shell(\n"
+            f"{TAB * 2}f\"./bin/notify-on-start {{config.get('build_name', 'unknown')}} {{SLACK_TS_FILE}}\"\n"  # noqa: E501  due to readability of test
+            f"{TAB * 1})\n"
+        )
+        formatter = setup_formatter(snakecode)
+        assert formatter.get_formatted() == snakecode
+
 
 class TestNewlineSpacing:
     def test_parameter_keyword_spacing_above(self):
