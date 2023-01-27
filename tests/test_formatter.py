@@ -1021,6 +1021,17 @@ class TestCommentTreatment:
         formatter = setup_formatter(snakecode)
         assert formatter.get_formatted() == snakecode
 
+    def test_two_comments_in_global_context(self):
+        """https://github.com/snakemake/snakefmt/issues/169#issuecomment-1365540999"""
+        snakecode = (
+            'configfile: "config.yaml"\n\n\n'
+            "# AAA\n"
+            "# BBB\n\n"
+            'BATCH = "20220202"\n'
+        )
+        formatter = setup_formatter(snakecode)
+        assert formatter.get_formatted() == snakecode
+
 
 class TestNewlineSpacing:
     def test_parameter_keyword_spacing_above(self):

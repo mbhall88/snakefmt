@@ -32,7 +32,12 @@ after_if_keywords = ("elif", "else")
 
 
 def is_all_comments(string):
-    return all(map(comment_start, [s for s in string.splitlines(keepends=True) if s.strip(" \t")]))
+    return all(
+        map(
+            comment_start,
+            [s for s in string.splitlines(keepends=True) if s.strip(" \t")],
+        )
+    )
 
 
 class Formatter(Parser):
@@ -362,7 +367,7 @@ class Formatter(Parser):
             )
             if not self.no_formatting_yet and not collate_same_singleparamkeyword:
                 after_if_statement = self.buffer.startswith(after_if_keywords)
-                if cur_indent in (0, None) and not after_if_statement:
+                if max(cur_indent, 0) in (0, None) and not after_if_statement:
                     self.result += "\n\n"
                 elif in_global_context or after_if_statement:
                     self.result += "\n"
