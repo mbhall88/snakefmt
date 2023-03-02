@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+### [0.8.2](https://www.github.com/mbhall88/snakefmt/compare/v0.8.1...v0.8.2) (2023-03-02)
+
+
+### Bug Fixes
+
+* add .template to default excludes ([610762f](https://www.github.com/mbhall88/snakefmt/commit/610762f133c39f771ffbb93b64a50637d8f189f5))
+
 ### [0.8.1](https://www.github.com/snakemake/snakefmt/compare/v0.8.0...v0.8.1) (2023-02-02)
 
 
