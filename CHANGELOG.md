@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+### [0.10.1](https://www.github.com/mbhall88/snakefmt/compare/v0.10.0...v0.10.1) (2024-04-10)
+
+
+### Bug Fixes
+
+* correctly find config file after updating min. black to v24.3 ([cce47fe](https://www.github.com/mbhall88/snakefmt/commit/cce47feecd75b79c55f9dfbf22c5ea577a845f23))
+* don't add spacing between consencutive braces in string [closes [#222](https://www.github.com/mbhall88/snakefmt/issues/222)] ([8bccc1d](https://www.github.com/mbhall88/snakefmt/commit/8bccc1d172102d5c941a7ad4de983794e0607ed3))
+
 ## [0.10.0](https://www.github.com/snakemake/snakefmt/compare/v0.9.0...v0.10.0) (2024-01-31)
 
 
