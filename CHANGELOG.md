@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+### [0.10.3](https://www.github.com/mbhall88/snakefmt/compare/v0.10.2...v0.10.3) (2024-05-17)
+
+
+### Documentation
+
+* fix incorrect compare URL ([a243b85](https://www.github.com/mbhall88/snakefmt/commit/a243b85f3108bf236a8fde91f0c39dd1731c8169))
+* update pre commit example ([#232](https://www.github.com/mbhall88/snakefmt/issues/232)) ([048b5b0](https://www.github.com/mbhall88/snakefmt/commit/048b5b009de2c86217a7f18ecd0b710286fbbf51))
+
 ### [0.10.2](https://www.github.com/snakemake/snakefmt/compare/v0.10.1...v0.10.2) (2024-05-08)
 
 
