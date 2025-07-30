@@ -65,7 +65,7 @@ list_of_lots_of_things = [
     10,
 ]
 """
-        assert actual.output == expected_output
+        assert actual.stdout == expected_output
 
     def test_config_adherence_for_code_inside_rules(self, cli_runner, tmp_path):
         stdin = (
@@ -82,9 +82,9 @@ list_of_lots_of_things = [
 
             assert actual.exit_code == 0
             if expect_same:
-                assert actual.output == stdin
+                assert actual.stdout == stdin
             else:
-                assert actual.output != stdin
+                assert actual.stdout != stdin
 
 
 class TestReadSnakefmtDefaultsFromPyprojectToml:

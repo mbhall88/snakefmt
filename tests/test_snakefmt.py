@@ -51,7 +51,7 @@ class TestCLIBasic:
 
         expected_output = f'rule all:\n{TAB}input:\n{TAB*2}"c",\n'
 
-        assert actual.output == expected_output
+        assert actual.stdout == expected_output
 
     def test_src_dir_arg_files_modified_inplace(self, cli_runner):
         with tempfile.TemporaryDirectory(dir=".") as tmpdir:
@@ -186,7 +186,7 @@ class TestCLICheck:
 
         assert ExitCode(result.exit_code) is ExitCode.WOULD_CHANGE
         expected_output = "=====> Diff for stdin <=====\n\n- x='foo'\n+ x = \"foo\"\n\n"
-        assert result.output == expected_output
+        assert result.stdout == expected_output
 
     def test_check_and_diff_doesnt_output_diff_if_error(self, cli_runner):
         stdin = "rule:rule:\n"
@@ -195,7 +195,7 @@ class TestCLICheck:
         result = cli_runner.invoke(main, params, input=stdin)
 
         assert ExitCode(result.exit_code) is ExitCode.ERROR
-        assert result.output == ""
+        assert result.stdout == ""
 
 
 class TestCLIDiff:
@@ -217,7 +217,7 @@ class TestCLIDiff:
             "?          ^ ^\n\n"
         )
 
-        assert result.output == expected_output
+        assert result.stdout == expected_output
 
     def test_compact_diff_works_as_expected(self, cli_runner):
         stdin = "include: 'a'\n"
@@ -238,7 +238,7 @@ class TestCLIDiff:
             '+include: "a"\n\n'
         )
 
-        assert result.output == expected_output
+        assert result.stdout == expected_output
 
     def test_compact_diff_and_diff_given_runs_compact_diff(self, cli_runner):
         stdin = "include: 'a'\n"
@@ -259,7 +259,7 @@ class TestCLIDiff:
             '+include: "a"\n\n'
         )
 
-        assert result.output == expected_output
+        assert result.stdout == expected_output
 
     def test_diff_does_not_format_file(self, cli_runner, tmp_path):
         content = "include: 'a'\nlist_of_lots_of_things = [1, 2, 3, 4, 5, 6, 7, 8]"
@@ -284,7 +284,7 @@ class TestCLIDiff:
 
         assert isinstance(result.exception, SyntaxError)
         assert result.exit_code != 0
-        assert result.output == ""
+        assert result.stdout == ""
 
 
 class TestConstructRegex:
