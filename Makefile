@@ -22,17 +22,17 @@ install-ci:
 # TIDY #################################################################
 .PHONY: fmt
 fmt:
-	uv run isort .
-	uv run black . --exclude venv
+	uv run ruff format .
+	uv run ruff check --fix .
 
 .PHONY: lint
 lint:
-	uv run flake8 . --exclude venv
+	uv run ruff check .
 
 .PHONY: check-fmt
 check-fmt:
-	uv run isort --check-only .
-	uv run black --check .
+	uv run ruff format --check .
+	uv run ruff check .
 
 # TEST ########################################################################
 .PHONY: test

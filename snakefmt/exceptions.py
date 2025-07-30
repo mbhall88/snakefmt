@@ -18,12 +18,12 @@ def NotAnIdentifierError(line_nb: str, identifier: str, keyword_line: str):
 
 def ColonError(line_nb: str, identifier: str, keyword_line: str):
     raise SyntaxError(
-        f"{line_nb}Colon (not '{identifier}') expected after " f"'{keyword_line}'"
+        f"{line_nb}Colon (not '{identifier}') expected after '{keyword_line}'"
     )
 
 
 def NewlineError(line_nb: str, keyword_line: str):
-    raise SyntaxError((f"{line_nb}Newline expected after keyword " f"'{keyword_line}'"))
+    raise SyntaxError((f"{line_nb}Newline expected after keyword '{keyword_line}'"))
 
 
 def SyntaxFormError(line_nb: str, keyword_line: str, syntax_form: str):

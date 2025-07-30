@@ -18,9 +18,7 @@ class TestCompare:
         diff = Diff(compact=True)
 
         actual = diff.compare(original, new)
-        expected = (
-            "--- original\n" "+++ new\n" "@@ -1,2 +1,2 @@\n" " foo\n" "-    bar+    baz"
-        )
+        expected = "--- original\n+++ new\n@@ -1,2 +1,2 @@\n foo\n-    bar+    baz"
 
         assert actual == expected
 
@@ -30,14 +28,7 @@ class TestCompare:
         diff = Diff(compact=True)
 
         actual = diff.compare(original, new)
-        expected = (
-            "--- original\n"
-            "+++ new\n"
-            "@@ -1,2 +1,2 @@\n"
-            " foo\n"
-            "-    bar\n"
-            "+    baz"
-        )
+        expected = "--- original\n+++ new\n@@ -1,2 +1,2 @@\n foo\n-    bar\n+    baz"
 
         assert actual == expected
 
@@ -58,13 +49,7 @@ class TestCompare:
 
         actual = diff.compare(original, new)
         expected = (
-            "--- original\n"
-            "+++ new\n"
-            "@@ -4,3 +4,3 @@\n"
-            " foo\n"
-            "-    bar\n"
-            "+    baz\n"
-            " line3\n"
+            "--- original\n+++ new\n@@ -4,3 +4,3 @@\n foo\n-    bar\n+    baz\n line3\n"
         )
 
         assert actual == expected

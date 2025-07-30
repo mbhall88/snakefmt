@@ -71,7 +71,7 @@ list_of_lots_of_things = [
         stdin = (
             f"rule a:\n"
             f"{TAB}input:\n"
-            f"{TAB*2}list_of_lots_of_things=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10],\n"
+            f"{TAB * 2}list_of_lots_of_things=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10],\n"
         )
         for line_length, expect_same in zip((200, 30), (True, False)):
             config = tmp_path / "pyproject.toml"

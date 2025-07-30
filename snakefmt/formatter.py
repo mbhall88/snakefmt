@@ -107,14 +107,14 @@ class Formatter(Parser):
                 else:
                     test_substitute = f"{used_keyword} a"
                 to_format = (
-                    f"{re_match.group(1)}{test_substitute}" f"{re_match.group(4)}pass"
+                    f"{re_match.group(1)}{test_substitute}{re_match.group(4)}pass"
                 )
                 formatted = self.run_black_format_str(to_format, self.block_indent)
                 re_rematch = contextual_matcher.match(formatted)
                 if condition != "":
                     callback_keyword += re_rematch.group(3)
                 formatted = (
-                    f"{re_rematch.group(1)}{callback_keyword}" f"{re_rematch.group(4)}"
+                    f"{re_rematch.group(1)}{callback_keyword}{re_rematch.group(4)}"
                 )
                 formatted_lines = formatted.splitlines(keepends=True)
                 formatted = "".join(formatted_lines[:-1])  # Remove the 'pass' line

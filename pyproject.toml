@@ -40,32 +40,42 @@ snakefmt = "snakefmt.snakefmt:main"
 dev = [
     "pytest>=7.4.4,<8",
     "pytest-cov>=4.1.0,<5",
-    "flake8~=7.0",
+    "ruff>=0.8.0,<1",
     "snakemake>=9.1.1",
-    "isort>=5.1.0,<6",
     "pynvim~=0.4.3",
 ]
 
-[tool.black]
+[tool.ruff]
+# Same as Black.
 line-length = 88
-include = '\.pyi?$'
-exclude = '''
-/(
-    \.eggs
-  | \.git
-  | \.hg
-  | \.mypy_cache
-  | \.tox
-  | \.venv
-  | _build
-  | buck-out
-  | build
-  | dist
-)/
-'''
+target-version = "py311"
 
-[tool.isort]
-profile = "black"
+[tool.ruff.lint]
+# Enable a good set of rules
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # Pyflakes
+    "I",   # isort (import sorting)
+]
+
+# Ignore rules that conflict with Black or are acceptable in this codebase
+ignore = [
+    "E203",  # whitespace before ':' (conflicts with Black)
+    "E402",  # module level import not at top of file (acceptable for this codebase)
+]
+
+[tool.ruff.lint.isort]
+# Configure isort to be compatible with Black
+force-single-line = false
+combine-as-imports = true
+split-on-trailing-comma = true
+
+[tool.ruff.format]
+# Use the same style as Black
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

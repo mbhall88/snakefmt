@@ -12,14 +12,14 @@ class TestCompleteness:
     @classmethod
     def check_completeness(cls, target_keywords: set, existing_keywords: set):
         spurious_keywords = existing_keywords.difference(target_keywords)
-        assert (
-            len(spurious_keywords) == 0
-        ), f"Keywords {spurious_keywords} do not exist in snakemake grammar"
+        assert len(spurious_keywords) == 0, (
+            f"Keywords {spurious_keywords} do not exist in snakemake grammar"
+        )
 
         missing_keywords = target_keywords.difference(existing_keywords)
-        assert (
-            len(missing_keywords) == 0
-        ), f"Keywords {missing_keywords} from snakemake grammar are missing"
+        assert len(missing_keywords) == 0, (
+            f"Keywords {missing_keywords} from snakemake grammar are missing"
+        )
 
     def test_global_context_completeness(self):
         target_keywords = set(parser.Python.subautomata)

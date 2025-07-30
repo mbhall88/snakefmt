@@ -49,7 +49,7 @@ class TestCLIBasic:
 
         assert actual.exit_code == 0
 
-        expected_output = f'rule all:\n{TAB}input:\n{TAB*2}"c",\n'
+        expected_output = f'rule all:\n{TAB}input:\n{TAB * 2}"c",\n'
 
         assert actual.stdout == expected_output
 
